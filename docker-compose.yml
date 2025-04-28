@@ -20,5 +20,13 @@ services:
       - MONGO_URI=mongodb://mongo:27017/photo_social_db
       - PORT=3000
 
+  client:
+    image: tedecanela/client_photo:latest
+    container_name: photo_social_client
+    ports: 
+      - "8081:8081"
+    depends_on:
+      - backend
+
 volumes:
   mongo-data:
